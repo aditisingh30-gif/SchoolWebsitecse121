@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Emerging Technologies School</title>
+    <title>School of AI & Emerging Technologies</title>
     
+    <!-- Internal CSS Styling -->
     <style>
         /* ===================================
-           RESPONSIVE SCHOOL WEBSITE CSS
-           Color Scheme: Blue & White
-           =================================== */
-
-        /* Root Variables - Easy to Customize */
+           COLOR THEME & ROOT VARIABLES
+           Blue (#1e3a8a, #3b82f6) & White (#ffffff)
+           ================================== */
         :root {
-            --primary-blue: #1e3a8a;      /* Dark Blue */
-            --light-blue: #3b82f6;         /* Light Blue */
-            --accent-blue: #0ea5e9;        /* Accent Blue */
+            --primary-color: #1e3a8a;        /* Dark Blue */
+            --secondary-color: #3b82f6;      /* Bright Blue */
+            --accent-color: #0ea5e9;         /* Sky Blue */
+            --text-color: #1f2937;           /* Dark Gray */
+            --light-bg: #f0f9ff;             /* Light Blue Background */
             --white: #ffffff;
-            --light-gray: #f3f4f6;
-            --dark-gray: #374151;
-            --text-color: #1f2937;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
 
-        /* Reset Default Styles */
+        /* ===================================
+           GENERAL STYLES
+           ================================== */
         * {
             margin: 0;
             padding: 0;
@@ -32,7 +32,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--white);
@@ -40,11 +40,11 @@
 
         /* ===================================
            HEADER & NAVIGATION
-           =================================== */
+           ================================== */
         header {
-            background-color: var(--primary-blue);
+            background-color: var(--primary-color);
             color: var(--white);
-            padding: 1rem 0;
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -54,7 +54,6 @@
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -63,7 +62,7 @@
         .school-name {
             font-size: 1.8rem;
             font-weight: bold;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         /* Navigation Menu */
@@ -78,16 +77,15 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
+            position: relative;
         }
 
         nav a:hover {
-            color: var(--accent-blue);
-            border-bottom: 2px solid var(--accent-blue);
+            color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
-        /* Hamburger Menu (Hidden by default) */
+        /* Hamburger Menu for Mobile */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -98,15 +96,15 @@
             width: 25px;
             height: 3px;
             background-color: var(--white);
-            margin: 4px 0;
+            margin: 5px 0;
             transition: var(--transition);
         }
 
         /* ===================================
-           HOME SECTION (BANNER)
-           =================================== */
+           HOME SECTION (HERO BANNER)
+           ================================== */
         #home {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
             padding: 6rem 2rem;
             text-align: center;
@@ -117,19 +115,263 @@
             align-items: center;
         }
 
-        .banner-content h1 {
+        #home h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
-            animation: slideDown 0.8s ease-out;
+            animation: slideDown 1s ease;
         }
 
-        .banner-content p {
-            font-size: 1.3rem;
+        #home p {
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            animation: slideUp 0.8s ease-out;
+            max-width: 600px;
         }
 
-        /* Animation for Home Section */
+        /* Welcome Button */
+        .welcome-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .welcome-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--white);
+            color: var(--primary-color);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===================================
+           SECTIONS GENERAL STYLING
+           ================================== */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 1rem;
+        }
+
+        /* ===================================
+           ABOUT SECTION
+           ================================== */
+        #about {
+            background-color: var(--light-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .about-highlights li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .about-highlights li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===================================
+           COURSES SECTION
+           ================================== */
+        #courses {
+            background-color: var(--white);
+        }
+
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background-color: var(--light-bg);
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-color);
+        }
+
+        .course-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .course-card p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .course-btn:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        /* ===================================
+           CONTACT SECTION
+           ================================== */
+        #contact {
+            background-color: var(--light-bg);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(14, 165, 233, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.02);
+        }
+
+        /* ===================================
+           FOOTER
+           ================================== */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-contact {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* ===================================
+           ANIMATIONS
+           ================================== */
         @keyframes slideDown {
             from {
                 opacity: 0;
@@ -141,250 +383,28 @@
             }
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* ===================================
-           BUTTONS
-           =================================== */
-        .btn {
-            background-color: var(--accent-blue);
-            color: var(--white);
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-block;
-            text-decoration: none;
-            margin: 0.5rem;
-        }
-
-        .btn:hover {
-            background-color: var(--light-blue);
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* ===================================
-           SECTIONS STYLING
-           =================================== */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 2rem;
-            text-align: center;
-            border-bottom: 3px solid var(--accent-blue);
-            padding-bottom: 1rem;
-            display: inline-block;
-            width: 100%;
-        }
-
-        /* ===================================
-           ABOUT SECTION
-           =================================== */
-        #about {
-            background-color: var(--light-gray);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-
-        .about-text p {
-            margin: 0.5rem 0;
-            line-height: 1.8;
-        }
-
-        .about-features {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        .about-features li {
-            list-style: none;
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .about-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* ===================================
-           COURSES SECTION
-           =================================== */
-        #courses {
-            background-color: var(--white);
-        }
-
-        .courses-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .course-card {
-            background-color: var(--light-gray);
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--primary-blue);
-        }
-
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            border-top-color: var(--accent-blue);
-        }
-
-        .course-card h3 {
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .course-card p {
-            color: var(--dark-gray);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        /* ===================================
-           CONTACT SECTION
-           =================================== */
-        #contact {
-            background-color: var(--light-gray);
-        }
-
-        .contact-container {
-            max-width: 600px;
-            margin: 2rem auto;
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--primary-blue);
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: Arial, sans-serif;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 5px var(--accent-blue);
-            background-color: #f0f9ff;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* ===================================
-           FOOTER
-           =================================== */
-        footer {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-        }
-
-        /* ===================================
-           RESPONSIVE DESIGN (MOBILE & TABLET)
-           =================================== */
-
-        /* Tablet: 768px to 1199px */
+           RESPONSIVE DESIGN - TABLET (768px to 1199px)
+           ================================== */
         @media (max-width: 1199px) {
-            .school-name {
-                font-size: 1.5rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
+            #home h1 {
+                font-size: 2.2rem;
             }
 
             section h2 {
                 font-size: 2rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            nav ul {
+                gap: 1rem;
             }
         }
 
-        /* Mobile: 481px to 767px */
+        /* ===================================
+           RESPONSIVE DESIGN - MOBILE (480px to 767px)
+           ================================== */
         @media (max-width: 767px) {
+            /* Header adjustments */
             .hamburger {
                 display: flex;
             }
@@ -392,13 +412,12 @@
             nav {
                 display: none;
                 position: absolute;
-                top: 100%;
+                top: 60px;
                 left: 0;
                 right: 0;
-                background-color: var(--primary-blue);
+                background-color: var(--primary-color);
                 flex-direction: column;
-                width: 100%;
-                text-align: center;
+                padding: 1rem;
             }
 
             nav.active {
@@ -407,94 +426,89 @@
 
             nav ul {
                 flex-direction: column;
-                gap: 0;
-                width: 100%;
+                gap: 1rem;
             }
 
-            nav li {
-                width: 100%;
+            .school-name {
+                font-size: 1.3rem;
             }
 
-            nav a {
-                display: block;
-                padding: 1rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
-            .banner-content h1 {
-                font-size: 2rem;
-            }
-
-            .banner-content p {
-                font-size: 1rem;
-            }
-
+            /* Home section */
             #home {
-                padding: 4rem 1.5rem;
-                min-height: 400px;
+                padding: 3rem 1rem;
+                min-height: 350px;
             }
 
-            section {
-                padding: 2.5rem 1.5rem;
-            }
-
-            section h2 {
+            #home h1 {
                 font-size: 1.8rem;
             }
 
-            .courses-container {
+            #home p {
+                font-size: 1rem;
+            }
+
+            /* About section */
+            .about-content {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+
+            /* Courses section */
+            .courses-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* General section */
+            section h2 {
+                font-size: 1.8rem;
+                padding-bottom: 0.8rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN - EXTRA SMALL (Below 480px)
+           ================================== */
+        @media (max-width: 479px) {
+            .school-name {
+                font-size: 1.1rem;
+            }
+
+            #home h1 {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            #home {
+                padding: 2rem 1rem;
+                min-height: 300px;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
             }
 
             .contact-container {
                 padding: 1.5rem;
             }
         }
-
-        /* Small Phones: 480px and below */
-        @media (max-width: 480px) {
-            .school-name {
-                font-size: 1.2rem;
-            }
-
-            .banner-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .banner-content p {
-                font-size: 0.9rem;
-            }
-
-            section h2 {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .course-card {
-                padding: 1.5rem;
-            }
-
-            .course-card h3 {
-                font-size: 1.2rem;
-            }
-        }
     </style>
 </head>
+
 <body>
+
     <!-- ===================================
          HEADER & NAVIGATION
          =================================== -->
     <header>
         <div class="header-container">
-            <!-- School Name -->
-            <div class="school-name">AI & Emerging Technologies</div>
-
-            <!-- Hamburger Menu Icon -->
+            <div class="school-name">School of AI & Emerging Technologies</div>
+            
+            <!-- Hamburger Menu Icon for Mobile -->
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -502,26 +516,26 @@
             </div>
 
             <!-- Navigation Menu -->
-            <nav id="navbar">
+            <nav id="navMenu">
                 <ul>
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#courses" class="nav-link">Courses</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- ===================================
-         HOME SECTION (BANNER)
+         HOME SECTION (HERO BANNER)
          =================================== -->
     <section id="home">
-        <div class="banner-content">
-            <h1>Welcome to AI & Emerging Technologies</h1>
-            <p>Preparing students for the future with cutting-edge education</p>
-            <button class="btn" id="welcomeBtn">Click for Welcome Message</button>
-        </div>
+        <h1>Welcome to School of AI & Emerging Technologies</h1>
+        <p>Empowering students with cutting-edge knowledge in Artificial Intelligence and Technology</p>
+        
+        <!-- Interactive Welcome Button -->
+        <button class="welcome-btn" id="welcomeBtn">Click for Welcome Message</button>
     </section>
 
     <!-- ===================================
@@ -529,36 +543,37 @@
          =================================== -->
     <section id="about">
         <h2>About Our School</h2>
+        
         <div class="about-content">
-            <!-- About Text -->
+            <!-- About Text Content -->
             <div class="about-text">
-                <h3>Our Mission</h3>
+                <h3>Who We Are</h3>
                 <p>
-                    At AI & Emerging Technologies, we are dedicated to fostering innovation and 
-                    critical thinking in our students. Our comprehensive curriculum integrates 
-                    artificial intelligence, machine learning, and emerging technologies to prepare 
-                    students for the digital world.
+                    School of AI & Emerging Technologies is a premier educational institution dedicated to 
+                    preparing students for the future. We provide comprehensive training in artificial intelligence, 
+                    machine learning, web development, and cybersecurity.
+                </p>
+                <p>
+                    Our mission is to foster innovation and critical thinking while equipping students with 
+                    practical skills needed in today's tech-driven world.
                 </p>
                 
-                <h3>Why Choose Us?</h3>
-                <p>
-                    We provide hands-on learning experiences, expert instructors, and modern 
-                    facilities. Our students develop skills that are in high demand in today's 
-                    job market.
-                </p>
+                <!-- Key Highlights -->
+                <h3 style="margin-top: 2rem;">Why Choose Us?</h3>
+                <ul class="about-highlights">
+                    <li>Expert faculty with industry experience</li>
+                    <li>State-of-the-art learning facilities</li>
+                    <li>Hands-on project-based learning</li>
+                    <li>Career guidance and placement support</li>
+                    <li>Affordable and flexible learning options</li>
+                </ul>
             </div>
 
-            <!-- Features List -->
-            <div class="about-features">
-                <h3>Key Features</h3>
-                <ul>
-                    <li>Expert AI & Tech Instructors</li>
-                    <li>State-of-the-art Lab Facilities</li>
-                    <li>Hands-on Project-Based Learning</li>
-                    <li>Industry Partnerships</li>
-                    <li>Certification Programs</li>
-                    <li>Career Placement Support</li>
-                </ul>
+            <!-- About Image Placeholder -->
+            <div class="about-image">
+                <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #3b82f6, #0ea5e9); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; text-align: center;">
+                    🎓 School of AI & Emerging Technologies 🤖
+                </div>
             </div>
         </div>
     </section>
@@ -568,35 +583,36 @@
          =================================== -->
     <section id="courses">
         <h2>Our Courses</h2>
+        
         <div class="courses-container">
             <!-- Course 1 -->
             <div class="course-card">
-                <h3>Artificial Intelligence Fundamentals</h3>
+                <h3>🤖 Artificial Intelligence Fundamentals</h3>
                 <p>
-                    Learn the basics of AI, machine learning algorithms, and data science. 
-                    Perfect for beginners who want to enter the AI field.
+                    Learn the basics of AI, machine learning algorithms, neural networks, 
+                    and practical applications. Perfect for beginners and intermediate learners.
                 </p>
-                <button class="btn">Learn More</button>
+                <button class="course-btn">Learn More</button>
             </div>
 
             <!-- Course 2 -->
             <div class="course-card">
-                <h3>Web Development & Cloud Computing</h3>
+                <h3>🌐 Web Development & Cloud Computing</h3>
                 <p>
-                    Master modern web technologies, responsive design, and cloud platforms. 
-                    Build scalable applications for the future.
+                    Master web technologies including HTML, CSS, JavaScript, and cloud platforms. 
+                    Build responsive websites and deploy applications on the cloud.
                 </p>
-                <button class="btn">Learn More</button>
+                <button class="course-btn">Learn More</button>
             </div>
 
             <!-- Course 3 -->
             <div class="course-card">
-                <h3>Cybersecurity & Advanced Technology</h3>
+                <h3>🔒 Cybersecurity & Advanced Technology</h3>
                 <p>
-                    Understand security protocols, ethical hacking, and blockchain technology. 
-                    Protect systems and stay ahead in tech trends.
+                    Understand security protocols, ethical hacking, and best practices. 
+                    Protect systems and data from cyber threats with practical expertise.
                 </p>
-                <button class="btn">Learn More</button>
+                <button class="course-btn">Learn More</button>
             </div>
         </div>
     </section>
@@ -606,28 +622,30 @@
          =================================== -->
     <section id="contact">
         <h2>Contact Us</h2>
+        
+        <!-- Contact Form -->
         <div class="contact-container">
             <form id="contactForm">
                 <!-- Name Input -->
                 <div class="form-group">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 </div>
 
                 <!-- Email Input -->
                 <div class="form-group">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                 </div>
 
                 <!-- Message Input -->
                 <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" placeholder="Enter your message here..."></textarea>
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </section>
@@ -636,57 +654,60 @@
          FOOTER
          =================================== -->
     <footer>
-        <p>&copy; 2026 AI & Emerging Technologies School. All rights reserved.</p>
-        <p>Email: info@aiet.edu | Phone: +1 (555) 123-4567</p>
+        <p>&copy; 2026 School of AI & Emerging Technologies. All rights reserved.</p>
+        <div class="footer-contact">
+            <p>📧 Email: info@schoolofai.edu</p>
+            <p>📞 Phone: +1 (555) 123-4567</p>
+            <p>📍 Address: 123 Tech Avenue, Innovation City, IC 12345</p>
+        </div>
     </footer>
 
     <!-- ===================================
-         JAVASCRIPT
+         INTERNAL JAVASCRIPT
          =================================== -->
     <script>
         // ===================================
-        // HAMBURGER MENU FUNCTIONALITY
+        // 1. HAMBURGER MENU FUNCTIONALITY
         // ===================================
+        // This code makes the mobile menu toggle when hamburger icon is clicked
         
-        // Get hamburger menu and navbar elements
         const hamburger = document.getElementById('hamburger');
-        const navbar = document.getElementById('navbar');
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navMenu = document.getElementById('navMenu');
 
-        // Toggle mobile menu when hamburger is clicked
         hamburger.addEventListener('click', function() {
-            navbar.classList.toggle('active');
+            // Toggle the 'active' class to show/hide navigation menu
+            navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when a link is clicked
+        // Close mobile menu when a navigation link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navbar.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
 
         // ===================================
-        // WELCOME BUTTON FUNCTIONALITY
+        // 2. WELCOME BUTTON FUNCTIONALITY
         // ===================================
+        // This code displays a welcome message when the button is clicked
         
-        // Get the welcome button
         const welcomeBtn = document.getElementById('welcomeBtn');
 
-        // Show welcome message when button is clicked
         welcomeBtn.addEventListener('click', function() {
-            alert('Welcome to AI & Emerging Technologies School! \n\nWe are excited to have you explore our world-class programs in AI, Web Development, and Cybersecurity. Let us help you build a bright future! 🚀');
+            // Display a welcome alert message
+            alert('🎓 Welcome to School of AI & Emerging Technologies!\n\nWe are excited to have you here. Explore our courses and join us on this amazing journey into the world of AI and technology!');
         });
 
         // ===================================
-        // CONTACT FORM VALIDATION
+        // 3. CONTACT FORM VALIDATION & SUBMISSION
         // ===================================
+        // This code validates the form before submission
         
-        // Get the contact form
         const contactForm = document.getElementById('contactForm');
 
-        // Listen for form submission
         contactForm.addEventListener('submit', function(event) {
-            // Prevent the form from actually submitting
+            // Prevent default form submission
             event.preventDefault();
 
             // Get form input values
@@ -694,42 +715,58 @@
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
 
-            // Regular expression for email validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            // ===== VALIDATION CHECKS =====
-
-            // Check if name is empty
-            if (name === '') {
-                alert('❌ Error: Please enter your full name.');
-                return;
+            // ===================================
+            // VALIDATION 1: Check if all fields are filled
+            // ===================================
+            if (name === '' || email === '' || message === '') {
+                alert('❌ Error: Please fill in all fields!');
+                return; // Stop execution if validation fails
             }
 
-            // Check if email is empty
-            if (email === '') {
-                alert('❌ Error: Please enter your email address.');
-                return;
+            // ===================================
+            // VALIDATION 2: Check if email is valid
+            // ===================================
+            // Using regex pattern to validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                alert('❌ Error: Please enter a valid email address!');
+                return; // Stop execution if validation fails
             }
 
-            // Check if email format is valid
-            if (!emailPattern.test(email)) {
-                alert('❌ Error: Please enter a valid email address (e.g., yourname@example.com).');
-                return;
-            }
+            // ===================================
+            // IF ALL VALIDATIONS PASS
+            // ===================================
+            // Show success message with student name
+            alert('✅ Success! Thank you, ' + name + '!\n\nYour message has been sent successfully. We will get back to you soon!');
 
-            // Check if message is empty
-            if (message === '') {
-                alert('❌ Error: Please enter your message.');
-                return;
-            }
-
-            // ===== ALL VALIDATION PASSED =====
-            // Show success message
-            alert(`✅ Thank you, ${name}! \n\nYour message has been received successfully. \nWe will get back to you soon at ${email}. \n\nRegards, \nAI & Emerging Technologies Team`);
-
-            // Clear the form (reset all input fields)
+            // Clear/Reset the form after successful submission
             contactForm.reset();
         });
+
+        // ===================================
+        // 4. SMOOTH SCROLLING FOR NAVIGATION LINKS
+        // ===================================
+        // This provides smooth scrolling when clicking navigation links
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                
+                // Get the target section ID from the link's href
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Scroll smoothly to the target section
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
+
 </body>
 </html>
